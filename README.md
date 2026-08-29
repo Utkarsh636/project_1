@@ -1,6 +1,6 @@
-# project_1
+# project_1 — Simple C++ Calculator
 
-A small starter project scaffold. Replace the sections below with project-specific details.
+A small command-line calculator implemented in C++ (calculator.cpp). This README documents what the program does, how to build and run it, and notes about its behavior.
 
 ## Table of Contents
 
@@ -8,104 +8,107 @@ A small starter project scaffold. Replace the sections below with project-specif
 - [Status](#status)
 - [Features](#features)
 - [Prerequisites](#prerequisites)
-- [Installation](#installation)
+- [Build & Installation](#build--installation)
 - [Usage](#usage)
+- [Behavior notes](#behavior-notes)
 - [Development](#development)
-- [Testing](#testing)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
 ## About
 
-Briefly describe what project_1 does, the problem it solves, and who it's for. Add links to any design docs or relevant issues.
+This repository contains a simple interactive calculator implemented in C++ (calculator.cpp). It prompts the user for two integers and an operator, then prints the result. It's intended as a small demo or starter project.
 
 ## Status
 
-Indicate the current status (e.g., prototype, alpha, beta, production) and any important notes about stability or compatibility.
+Prototype / learning example — suitable for demonstration and small experiments.
 
 ## Features
 
-- Feature 1 — short description
-- Feature 2 — short description
-- Feature 3 — short description
+- Addition (+)
+- Subtraction (-)
+- Multiplication (*)
+- Integer division (/) with divide-by-zero check
+- Power (^) using pow from <cmath>
+- Modulus (%) with zero-check
 
 ## Prerequisites
 
-List required tools, runtimes, or accounts. Example:
+- A C++ compiler (g++, clang++)
+- Basic command-line familiarity
 
-- Git
-- Node.js >= 16 (or your project's runtime)
-- npm or yarn (if applicable)
+## Build & Installation
 
-## Installation
-
-Clone the repo and install dependencies:
+Clone the repo and compile the program:
 
 ```bash
 git clone https://github.com/Utkarsh636/project_1.git
 cd project_1
-# install deps (adjust for your stack)
-npm install
+g++ calculator.cpp -o calculator
+```
+
+Then run:
+
+```bash
+./calculator
 ```
 
 ## Usage
 
-How to run the project locally and example commands:
+The program runs interactively. It prompts:
 
-```bash
-# run the app
-npm start
+- "Enter the first number:" — enter an integer
+- "Enter the second number:" — enter an integer
+- It then shows the operator choices and waits for a single-character operator: + - * / ^ %
 
-# build
-npm run build
+Example session:
 
-# run tests
-npm test
+```
+welcome to the calculator
+Enter the first number: 5
+Enter the second number: 2
+please select the operator to proceed
++ for addition
+- for subtraction
+* for multiplication
+/ for division
+^ for power
+% for modulus
++
+7
 ```
 
-Show a small example of expected input/output or include screenshots/GIFs for UI projects.
+## Behavior notes
+
+- The program uses int for inputs (num1, num2). Division (/) performs integer division; e.g., 5 / 2 yields 2.
+- The power operator (^) is implemented with pow(num1, num2) from <cmath>. pow returns a floating-point value (double). When both inputs are integers, common results are integral, but the output may be printed as a floating-point representation depending on the value.
+- Division and modulus protect against division by zero and will print an error message if the second number is zero.
+- Input is simple and not validated beyond the checks described; non-integer input will cause std::cin to fail.
 
 ## Development
 
-Tips for contributors and maintainers:
-
-- Coding style / linters to run (e.g., eslint, prettier)
-- How to run in development mode
-- How to debug common issues
-
-Example:
-
-```bash
-# run dev server
-npm run dev
-```
-
-## Testing
-
-Explain test structure and how to run tests locally:
-
-```bash
-npm test
-# or run a specific test
-npm test -- -t "should do something"
-```
+- The code is a single-file example (calculator.cpp). Suggested improvements:
+  - Add input validation and support for floating-point numbers.
+  - Improve prompt/UX and error handling.
+  - Add unit tests for operations and edge cases.
+  - Consider using long long or checking for overflow for large exponents.
 
 ## Contributing
 
-Contributions are welcome! Suggested workflow:
+Contributions are welcome. Suggested workflow:
 
 1. Fork the repository.
 2. Create a branch: `git checkout -b feature/my-feature`.
-3. Commit changes: `git commit -m "Add some feature"`.
+3. Commit changes: `git commit -m "Describe change"`.
 4. Push: `git push origin feature/my-feature`.
 5. Open a pull request describing your changes.
 
-Please follow the code style rules and include tests where appropriate.
+Please follow code style and include tests where appropriate.
 
 ## License
 
-This project is available under the MIT License. Replace with your chosen license if different.
+This project is available under the MIT License.
 
 ## Contact
 
